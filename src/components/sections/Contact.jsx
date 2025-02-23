@@ -1,5 +1,5 @@
 import { RevealOnScroll } from "../RevealOnScroll";
-import emailjs from "emailjs-com";
+import emailjs from 'emailjs-com';
 import { useState } from "react";
 
 export const Contact = () => {
@@ -8,28 +8,29 @@ export const Contact = () => {
 		email: "",
 		message: "",
 	});
+	 const  SERVICE_ID = "service_f0ekohh";
+	 const  TEMPLATE_ID = "template_lg43h9d";
+	 const  PUBLIC_KEY = "SEJMUn9GWRbclxJiu";
 
-	const handleSubmit = e => {
+     
+	 const handleSubmit =(e) =>{
 		e.preventDefault();
-		emailjs
-			.sendForm(
-				import.meta.env.VITE_SERVICE_ID,
-				import.meta.env.VITE_TEMPLATE_ID,
-				e.target,
-				import.meta.env.VITE_PUBLICP_KEY
-			)
-			.then(result => {
-				alert(
-					"Message Sent Successfully! I will get back to you as soon as possible!"
-				);
-				setFormData({
-					name: "",
-					email: "",
-					message: "",
-				});
+
+		emailjs.sendForm(
+			             SERVICE_ID,
+					 	 TEMPLATE_ID,
+						 e.target,
+						 PUBLIC_KEY
+						)
+		.then((result) => {
+			alert("Message Sent");
+			setFormData({
+				name: "",
+				email: "",
+				message: ""
 			})
-			.catch(() => alert("Message Not Sent!,Please Try Again!"));
-	};
+		}).catch(() => alert("Something Wrong"));
+	 };
 
 	return (
 		<section
@@ -55,7 +56,7 @@ export const Contact = () => {
 								required
 								className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white transition focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
 								placeholder="Your Name"
-								onChange={e =>
+								onChange={(e)=>
 									setFormData({
 										...formData,
 										name: e.target.value,
@@ -72,7 +73,7 @@ export const Contact = () => {
 								required
 								className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white transition focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
 								placeholder="example@gmail.com"
-								onChange={e =>
+								onChange={(e) =>
 									setFormData({
 										...formData,
 										email: e.target.value,
@@ -90,7 +91,7 @@ export const Contact = () => {
 								required
 								className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white transition focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
 								placeholder="Send Me A Message"
-								onChange={e =>
+								onChange={(e) =>
 									setFormData({
 										...formData,
 										message: e.target.value,

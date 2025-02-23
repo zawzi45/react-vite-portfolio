@@ -122,7 +122,7 @@ export const Projects = () => {
 								PHP,SQL,HTML,CSS,BOOTSTRAP.
 							</p>
 							<div className="flex gap-2 mt-4">
-								{["PHP", "SQL", "HTML", "CSS", "BOOTSTRAP"].map(
+								{["PHP","SQL","HTML","CSS","BOOTSTRAP"].map(
 									(tech, key) => (
 										<span
 											key={key}
